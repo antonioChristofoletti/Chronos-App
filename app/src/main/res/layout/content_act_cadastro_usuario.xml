@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".View.ActCadastroUsuario"
+    tools:layout_editor_absoluteY="81dp"
+    tools:showIn="@layout/act_cadastro_usuario">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:id="@+id/txtNome"
+                android:layout_width="0dp"
+                android:layout_height="46dp"
+                android:ems="10"
+                android:hint="Nome do Funcionário"
+                android:inputType="textPersonName"
+                android:textSize="16dp"
+                app:layout_constraintEnd_toEndOf="@+id/lblNumeroTelefone"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/lblNumeroTelefone"
+                app:layout_constraintTop_toBottomOf="@+id/lblNumeroTelefone" />
+
+            <TextView
+                android:id="@+id/lblTelefone"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Telefone"
+                android:textSize="14dp"
+                app:layout_constraintEnd_toEndOf="@+id/txtNome"
+                app:layout_constraintStart_toStartOf="@+id/txtNome"
+                app:layout_constraintTop_toBottomOf="@+id/txtNome" />
+
+            <TextView
+                android:id="@+id/lblNumeroTelefone"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Nome"
+                android:textSize="14dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/txtNumeroTelefone"
+                android:layout_width="0dp"
+                android:layout_height="46dp"
+                android:digits="@string/apenasFormatoTelefone"
+                android:ems="10"
+                android:hint="Número do Funcionário"
+                android:imeOptions="actionNext"
+                android:inputType="number|text"
+                android:maxLength="15"
+                android:textSize="16dp"
+                app:layout_constraintEnd_toEndOf="@+id/lblTelefone"
+                app:layout_constraintStart_toStartOf="@+id/lblTelefone"
+                app:layout_constraintTop_toBottomOf="@+id/lblTelefone" />
+
+            <Spinner
+                android:id="@+id/spinnerTurno"
+                android:layout_width="0dp"
+                android:layout_height="46dp"
+                android:layout_marginBottom="8dp"
+                android:textSize="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/lblTurno"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/lblTurno"
+                app:layout_constraintTop_toBottomOf="@+id/lblTurno"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/lblTurno"
+                android:layout_width="0dp"
+                android:layout_height="34dp"
+                android:text="Turno"
+                android:textSize="14dp"
+                app:layout_constraintEnd_toEndOf="@+id/txtEmail"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/txtEmail"
+                app:layout_constraintTop_toBottomOf="@+id/txtEmail" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="E-mail"
+                android:textSize="14dp"
+                app:layout_constraintEnd_toEndOf="@+id/txtNumeroTelefone"
+                app:layout_constraintStart_toStartOf="@+id/txtNumeroTelefone"
+                app:layout_constraintTop_toBottomOf="@+id/txtNumeroTelefone" />
+
+            <EditText
+                android:id="@+id/txtEmail"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="E-mail do Funcionário"
+                android:inputType="textEmailAddress"
+                android:textSize="16dp"
+                app:layout_constraintEnd_toEndOf="@+id/textView"
+                app:layout_constraintStart_toStartOf="@+id/textView"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+        </android.support.constraint.ConstraintLayout>
+
+    </ScrollView>
+
+
+</android.support.constraint.ConstraintLayout>

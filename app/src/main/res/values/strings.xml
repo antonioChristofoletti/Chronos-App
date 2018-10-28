@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Chronos</string>
+    <string name="action_settings">Settings</string>
+    <string name="apenasFormatoTelefone">)(0123456789-</string>
+    <string name="title_activity_act_principal">Chronos</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
