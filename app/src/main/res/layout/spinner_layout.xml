@@ -4,6 +4,7 @@
     android:minWidth="246dp"
     android:layout_width="match_parent"
     android:layout_height="48dp"
+    android:textColor="@color/colorBlack"
     android:gravity="left|center_vertical"
     android:textSize="16dp"
     android:paddingLeft="4dp"

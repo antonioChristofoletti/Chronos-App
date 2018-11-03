@@ -11,6 +11,10 @@ public class UsuarioController {
         UsuarioDAO.inserir(u);
     }
 
+    public static void editar(Usuario u) throws Exception {
+        UsuarioDAO.editar(u);
+    }
+
     public static Usuario retornaUsuario() throws Exception {
         return UsuarioDAO.retornaUsuario();
     }

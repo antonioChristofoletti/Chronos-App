@@ -85,13 +85,12 @@ public abstract class Geral {
         return android.text.format.DateFormat.format(formato, date).toString();
     }
 
-    public static String removerMascara(String texto) {
-        texto = texto.replace(".", "");
-        texto = texto.replace(",", "");
-        texto = texto.replace(";", "");
-        texto = texto.replace("(", "");
-        texto = texto.replace(")", "");
-        texto = texto.replace("-", "");
+    public static String removerMascara(String texto, String mascara) {
+
+        mascara = mascara.replace("#", "");
+
+        for (int i = 0; i < mascara.length(); i++)
+            texto = texto.replace(mascara.charAt(i) + "", "");
 
         return texto;
     }
@@ -99,17 +98,13 @@ public abstract class Geral {
     public static String setaMascara(String valor, String mascara) {
         StringBuilder stringModificada = new StringBuilder();
 
-        for (int i=0; i < valor.length();i++){
+        int iValor = 0;
+        for (int i=0; i < mascara.length();i++) {
 
-            if(mascara.charAt(i) == '#')
-            {
-                stringModificada.append(valor.charAt(i));
-            }
+            if (mascara.charAt(i) == '#')
+                stringModificada.append(valor.charAt(iValor++));
             else
-            {
                 stringModificada.append(mascara.charAt(i));
-                stringModificada.append(valor.charAt(i));
-            }
         }
 
         return stringModificada.toString();

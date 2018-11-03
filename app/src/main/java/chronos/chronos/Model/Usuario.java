@@ -1,6 +1,8 @@
 package chronos.chronos.Model;
 
-public class Usuario {
+import java.io.Serializable;
+
+public class Usuario implements Serializable{
 
     private String id;
     private String nome;

@@ -8,4 +8,5 @@
     <color name="colorBackgroundComponentsMaterialDesign">#EBEBEB</color>
     <color name="colorBackgroundIconsNaoSelecionadosMaterialDesign">#B3B3B3</color>
     <color name="colorwhite">#fff</color>
+    <color name="colorBlack">#000</color>
 </resources>

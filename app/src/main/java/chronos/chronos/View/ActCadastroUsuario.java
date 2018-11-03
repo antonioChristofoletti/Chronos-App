@@ -29,6 +29,8 @@ public class ActCadastroUsuario extends AppCompatActivity {
     private EditText txtEmail;
     private Spinner spinnerTurno;
 
+    private Usuario usuarioEdicao;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,24 +38,38 @@ public class ActCadastroUsuario extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        this.setTitle("Cadastre-se");
+        usuarioEdicao = (Usuario) this.getIntent().getSerializableExtra("usuarioEdicao");
 
-        DadosOpenHelper.criarconexao(this);
+        if (usuarioEdicao == null) {
 
-        Usuario u = null;
-        try {
-            u = UsuarioController.retornaUsuario();
-        } catch (Exception e) {
-            Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
+            this.setTitle("Cadastre-se");
+
+            DadosOpenHelper.criarconexao(this);
+
+            Usuario u = null;
+            try {
+                u = UsuarioController.retornaUsuario();
+            } catch (Exception e) {
+                Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
+            }
+
+            if (u != null) {
+                Intent intent = new Intent(this, ActPrincipal.class);
+                startActivity(intent);
+                finish();
+            }
+
+            configurarComponentes();
         }
 
-        if(u != null){
-            finish();
-            Intent intent = new Intent(this, ActPrincipal.class);
-            startActivity(intent);
-        }
+        if (usuarioEdicao != null) {
 
-        configurarComponentes();
+            this.setTitle("Meu Perfil");
+
+            configurarComponentes();
+
+            carregarDadosParaCampos(usuarioEdicao);
+        }
     }
 
     //region METODOS
@@ -69,6 +85,22 @@ public class ActCadastroUsuario extends AppCompatActivity {
         configurarSpinnerTurno();
     }
 
+    public void carregarDadosParaCampos(Usuario u) {
+        txtEmail.setText(u.getEmail());
+
+        txtNumeroTelefone.setText(Geral.setaMascara(u.getNumeroTelefone(), MaskWatcher.FORMAT_FONE));
+
+        txtNome.setText(u.getNome());
+
+        for (int i = 0; i < spinnerTurno.getAdapter().getCount(); i++) {
+
+            if (u.getTurno().equals(spinnerTurno.getAdapter().getItem(i))) {
+                spinnerTurno.setSelection(i);
+                break;
+            }
+        }
+    }
+
     public void configurarSpinnerTurno(){
         spinnerTurno = (Spinner) findViewById(R.id.spinnerTurno);
         String[] itemsTurno = new String[]{"A - Diurno", "B - Diurno", "C - Noturno", "D - Noturno"};
@@ -81,7 +113,7 @@ public class ActCadastroUsuario extends AppCompatActivity {
             Usuario u = new Usuario();
 
             u.setNome(txtNome.getText().toString());
-            u.setNumeroTelefone(Geral.removerMascara(txtNumeroTelefone.getText().toString()));
+            u.setNumeroTelefone(Geral.removerMascara(txtNumeroTelefone.getText().toString(), MaskWatcher.FORMAT_FONE));
             u.setEmail(txtEmail.getText().toString());
             u.setTurno(spinnerTurno.getSelectedItem().toString());
 
@@ -102,11 +134,19 @@ public class ActCadastroUsuario extends AppCompatActivity {
                 return;
             }
 
-            UsuarioDAO.inserir(u);
+            if(usuarioEdicao == null) {
+                UsuarioDAO.inserir(u);
+                Intent intent = new Intent(this, ActPrincipal.class);
+                startActivity(intent);
+            }
+            else {
+                u.setId(usuarioEdicao.getId());
 
+                UsuarioDAO.editar(u);
+            }
             finish();
         } catch (Exception ex) {
-            Geral.chamarAlertDialog(this, "Erro", "Erro ao inserir usuário. Erro: " + ex.getMessage());
+            Geral.chamarAlertDialog(this, "Erro", "Erro ao salvar o usuário. Erro: " + ex.getMessage());
         }
     }
 
@@ -119,6 +159,11 @@ public class ActCadastroUsuario extends AppCompatActivity {
         MenuInflater menuInflater = getMenuInflater();
         menuInflater.inflate(R.menu.act_act_inc_alt, menu);
 
+        if(usuarioEdicao != null) {
+            menu.getItem(0).setTitle("Editar");
+
+            menu.getItem(1).setVisible(false);
+        }
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -141,5 +186,4 @@ public class ActCadastroUsuario extends AppCompatActivity {
     }
 
     //endregion
-
 }

@@ -19,17 +19,17 @@ public abstract  class UsuarioDAO {
         sql.append("       nome             VARCHAR(100) NOT NULL, ");
         sql.append("       numeroTelefone   VARCHAR(20) NOT NULL, ");
         sql.append("       email            VARCHAR(30) NOT NULL, ");
-        sql.append("       turno            VARCHAR(1) NOT NULL)");
+        sql.append("       turno            VARCHAR(30) NOT NULL)");
 
         return sql.toString();
     }
 
-    public static void inserir(Usuario u) throws Exception {
+    public static void inserir(Usuario usuario) throws Exception {
         ContentValues contentValues = new ContentValues();
-        contentValues.put("nome", u.getNome());
-        contentValues.put("numeroTelefone", u.getNumeroTelefone());
-        contentValues.put("email", u.getEmail());
-        contentValues.put("turno", u.getTurno().substring(0,1));
+        contentValues.put("nome", usuario.getNome());
+        contentValues.put("numeroTelefone", usuario.getNumeroTelefone());
+        contentValues.put("email", usuario.getEmail());
+        contentValues.put("turno", usuario.getTurno());
 
         DadosOpenHelper.getConexao().insertOrThrow("Usuario",null,contentValues);
     }
@@ -47,33 +47,31 @@ public abstract  class UsuarioDAO {
 
             resultado.moveToFirst();
 
-            Usuario usuarioCliente = new Usuario();
+            Usuario usuario = new Usuario();
 
-            usuarioCliente.setId(resultado.getString(resultado.getColumnIndexOrThrow("id")));
-            usuarioCliente.setEmail(resultado.getString(resultado.getColumnIndexOrThrow("email")));
-            usuarioCliente.setNome(resultado.getString(resultado.getColumnIndexOrThrow("nome")));
+            usuario.setId(resultado.getString(resultado.getColumnIndexOrThrow("id")));
+            usuario.setEmail(resultado.getString(resultado.getColumnIndexOrThrow("email")));
+            usuario.setNome(resultado.getString(resultado.getColumnIndexOrThrow("nome")));
+            usuario.setNumeroTelefone(resultado.getString(resultado.getColumnIndexOrThrow("numeroTelefone")));
 
-            usuarioCliente.setTurno(resultado.getString(resultado.getColumnIndexOrThrow("turno")));
+            usuario.setTurno(resultado.getString(resultado.getColumnIndexOrThrow("turno")));
 
-            return usuarioCliente;
+            return usuario;
         }catch (Exception ex){
             throw new Exception("Erro ao retornar usuário. Erro: " + ex.getMessage());
         }
     }
 
-    /*
-    public static void alterar(UsuarioCliente uc) {
+    public static void editar(Usuario usuario) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put("id", uc.getId());
-        contentValues.put("nome", uc.getNome());
-        contentValues.put("cpf", uc.getCpf());
-        contentValues.put("dataNascimento", uc.getDataNascimento().toString());
+        contentValues.put("nome", usuario.getNome());
+        contentValues.put("numeroTelefone", usuario.getNumeroTelefone());
+        contentValues.put("email", usuario.getEmail());
+        contentValues.put("turno", usuario.getTurno());
 
         String[] parametros = new String[1];
-        parametros[0] = String.valueOf(uc.getId());
+        parametros[0] = String.valueOf(usuario.getId());
 
-        DadosOpenHelper.getConexao().update("UsuarioCliente", contentValues, "id = ?", parametros);
+        DadosOpenHelper.getConexao().update("Usuario", contentValues, "id = ?", parametros);
     }
-
-   */
 }

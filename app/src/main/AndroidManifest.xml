@@ -19,10 +19,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".View.Principal.ActPrincipal"
             android:label="@string/title_activity_act_principal"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ActTiposOcorrencias"
+            android:label="@string/title_activity_act_tipos_ocorrencias"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

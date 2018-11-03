@@ -4,6 +4,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import chronos.chronos.View.Principal.Cadastros.FragActPrincipalCadastros;
+import chronos.chronos.View.Principal.OrdemServico.FragActPrincipalos;
+
 public class PagerAdapter extends FragmentPagerAdapter {
 
     private int numeroDeTabs;

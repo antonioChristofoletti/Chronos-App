@@ -1,5 +1,6 @@
 package chronos.chronos.View.Principal;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabItem;
 import android.support.design.widget.TabLayout;
@@ -10,8 +11,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.Toast;
 
+import chronos.chronos.Controller.UsuarioController;
+import chronos.chronos.Model.Usuario;
 import chronos.chronos.R;
+import chronos.chronos.View.ActCadastroUsuario;
 
 public class ActPrincipal extends AppCompatActivity {
 
@@ -63,7 +68,6 @@ public class ActPrincipal extends AppCompatActivity {
 
             }
         });
-
     }
 
     //region EVENTOS MENU
@@ -78,6 +82,16 @@ public class ActPrincipal extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        try {
+            Usuario u = UsuarioController.retornaUsuario();
+
+            Intent intent = new Intent(ActPrincipal.this, ActCadastroUsuario.class);
+            intent.putExtra("usuarioEdicao",u);
+
+            startActivity(intent);
+        } catch (Exception e) {
+            Toast.makeText(this, "Erro ao retornar usuário. Erro: " + e.getMessage(), Toast.LENGTH_LONG).show();
+        }
 
         return super.onOptionsItemSelected(item);
     }
