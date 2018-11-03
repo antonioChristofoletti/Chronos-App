@@ -6,5 +6,8 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_act_tipos_ocorrencias">ActTiposOcorrencias</string>
+    <string name="title_activity_act_tipos_ocorrencias">Tipos Ocorrências</string>
+    <string name="title_activity_act_tipos_ocorrencias_cadastro">Cadastrar</string>
+    <string name="title_activity_act_bens_materiais">Bens Materiais</string>
+    <string name="title_activity_act_bens_materiais_cadastro">Cadastro</string>
 </resources>

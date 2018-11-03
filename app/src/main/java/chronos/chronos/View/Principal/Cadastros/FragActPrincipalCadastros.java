@@ -1,6 +1,5 @@
 package chronos.chronos.View.Principal.Cadastros;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -13,9 +12,9 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import chronos.chronos.ActTiposOcorrencias;
+import chronos.chronos.View.BensMateriais.ActBensMateriais;
+import chronos.chronos.View.TiposOcorrencias.ActTiposOcorrencias;
 import chronos.chronos.R;
-import chronos.chronos.View.Principal.ActPrincipal;
 
 public class FragActPrincipalCadastros extends Fragment {
 
@@ -65,7 +64,9 @@ public class FragActPrincipalCadastros extends Fragment {
                         break;
                     }
 
-                    case "Equipamentos":{
+                    case "Bens Materiais":{
+                        Intent intent = new Intent(appCompatActivity, ActBensMateriais.class);
+                        startActivity(intent);
                         break;
                     }
                 }

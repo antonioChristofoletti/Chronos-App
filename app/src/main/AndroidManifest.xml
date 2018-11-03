@@ -24,8 +24,20 @@
             android:label="@string/title_activity_act_principal"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".ActTiposOcorrencias"
+            android:name=".View.TiposOcorrencias.ActTiposOcorrencias"
             android:label="@string/title_activity_act_tipos_ocorrencias"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".View.TiposOcorrencias.ActTiposOcorrenciasCadastro"
+            android:label="@string/title_activity_act_tipos_ocorrencias_cadastro"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".View.BensMateriais.ActBensMateriais"
+            android:label="@string/title_activity_act_bens_materiais"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".View.BensMateriais.ActBensMateriaisCadastro"
+            android:label="@string/title_activity_act_bens_materiais_cadastro"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

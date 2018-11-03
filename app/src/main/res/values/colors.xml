@@ -9,4 +9,5 @@
     <color name="colorBackgroundIconsNaoSelecionadosMaterialDesign">#B3B3B3</color>
     <color name="colorwhite">#fff</color>
     <color name="colorBlack">#000</color>
+    <color name="colorGreen_status_ativo">#4CAF50</color>
 </resources>
