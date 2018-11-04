@@ -9,5 +9,7 @@
     <string name="title_activity_act_tipos_ocorrencias">Tipos Ocorrências</string>
     <string name="title_activity_act_tipos_ocorrencias_cadastro">Cadastrar</string>
     <string name="title_activity_act_bens_materiais">Bens Materiais</string>
-    <string name="title_activity_act_bens_materiais_cadastro">Cadastro</string>
+    <string name="title_activity_act_bens_materiais_cadastro">Cadastrar</string>
+    <string name="title_activity_act_ordem_servico">Ordens de Serviço</string>
+    <string name="title_activity_act_ordem_servico_cadastro">Cadastrar</string>
 </resources>

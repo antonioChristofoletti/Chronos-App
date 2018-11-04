@@ -38,6 +38,14 @@
         <activity
             android:name=".View.BensMateriais.ActBensMateriaisCadastro"
             android:label="@string/title_activity_act_bens_materiais_cadastro"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ActOrdemServico"
+            android:label="@string/title_activity_act_ordem_servico"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".View.OrdemServico.ActOrdemServicoCadastro"
+            android:label="@string/title_activity_act_ordem_servico_cadastro"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

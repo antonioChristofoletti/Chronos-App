@@ -33,6 +33,8 @@ public class DadosOpenHelper extends SQLiteOpenHelper {
         db.execSQL(TipoOcorrenciaDAO.getTableTipoocorrencia());
 
         db.execSQL(BemMaterialDAO.getTableBemMaterial());
+
+        db.execSQL(OrdemServicoDAO.getTableOrdemServico());
     }
 
     @Override
