@@ -10,4 +10,12 @@
     <color name="colorwhite">#fff</color>
     <color name="colorBlack">#000</color>
     <color name="colorGreen_status_ativo">#4CAF50</color>
+
+    <color name="ItemCancelado">#D50000</color>
+    <color name="ItemEmExecucao">#1565C0</color>
+    <color name="ItemPendente">#673AB7</color>
+    <color name="ItemFinalizado">#4CAF50</color>
+
+
+
 </resources>

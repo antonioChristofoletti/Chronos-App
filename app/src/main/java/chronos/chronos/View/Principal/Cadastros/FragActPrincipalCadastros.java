@@ -22,6 +22,7 @@ public class FragActPrincipalCadastros extends Fragment {
     private AppCompatActivity appCompatActivity;
 
     private ListView listView;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +39,7 @@ public class FragActPrincipalCadastros extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         this.view = view;
 
-        this.appCompatActivity = (AppCompatActivity)this.getActivity();
+        this.appCompatActivity = (AppCompatActivity) this.getActivity();
 
         configuraComponentes();
     }
@@ -54,17 +55,16 @@ public class FragActPrincipalCadastros extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                String titulo  = fragActPrincipalCadastrosAdapter.titulos[position];
+                String titulo = fragActPrincipalCadastrosAdapter.titulos[position];
 
-                switch (titulo)
-                {
-                    case "Tipos Ocorrências":{
+                switch (titulo) {
+                    case "Tipos Ocorrências": {
                         Intent intent = new Intent(appCompatActivity, ActTiposOcorrencias.class);
                         startActivity(intent);
                         break;
                     }
 
-                    case "Bens Materiais":{
+                    case "Bens Materiais": {
                         Intent intent = new Intent(appCompatActivity, ActBensMateriais.class);
                         startActivity(intent);
                         break;

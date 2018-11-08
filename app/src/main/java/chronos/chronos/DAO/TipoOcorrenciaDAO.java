@@ -5,6 +5,7 @@ import android.database.Cursor;
 
 import java.util.ArrayList;
 
+import chronos.chronos.Geral.Geral;
 import chronos.chronos.Model.TipoOcorrencia;
 
 public abstract  class TipoOcorrenciaDAO {
@@ -29,12 +30,19 @@ public abstract  class TipoOcorrenciaDAO {
         DadosOpenHelper.getConexao().insertOrThrow("TipoOcorrencia", null, contentValues);
     }
 
-    public static ArrayList<TipoOcorrencia> retornaListaTipoOcorrencia() throws Exception {
+    public static ArrayList<TipoOcorrencia> retornaListaTipoOcorrencia(String whereStatus) throws Exception {
         try {
-            StringBuilder sql = new StringBuilder();
-            sql.append("SELECT * FROM TipoOcorrencia ORDER BY status, descricao COLLATE LOCALIZED;");
+            String sql = "SELECT * FROM TipoOcorrencia WHERE @WHERE ORDER BY status, descricao COLLATE LOCALIZED;";
 
-            Cursor resultado = DadosOpenHelper.getConexao().rawQuery(sql.toString(), null);
+            String where = "";
+            if(!Geral.isCampoVazio(whereStatus))
+                where += whereStatus + " AND ";
+
+            where += " 1=1";
+
+            sql = sql.replace("@WHERE", where);
+
+            Cursor resultado = DadosOpenHelper.getConexao().rawQuery(sql, null);
 
             ArrayList<TipoOcorrencia> listaTipoOcorrencia = new ArrayList<>();
 

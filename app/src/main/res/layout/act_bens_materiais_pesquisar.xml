@@ -4,9 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:focusable="true"
-    android:focusableInTouchMode="true"
-    tools:context=".View.OrdemServico.ActOrdemServicoCadastro">
+    tools:context=".View.BensMateriais.ActBensMateriaisPesquisar">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -22,7 +20,6 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_act_ordem_servico_cadastro" />
-
+    <include layout="@layout/content_act_bens_materiais_pesquisar" />
 
 </android.support.design.widget.CoordinatorLayout>

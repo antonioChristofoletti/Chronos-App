@@ -76,13 +76,16 @@ public abstract class Geral {
             SimpleDateFormat sdf = new SimpleDateFormat(formato);
             return sdf.parse(data);
         } catch (Exception ex) {
-            return geraData("dd/MM/yyyy", "1/01/1500");
+            return null;
         }
     }
 
-    public static String formataData(String formato, Date date)
-    {
-        return android.text.format.DateFormat.format(formato, date).toString();
+    public static String formataData(String formato, Date date) {
+        try {
+            return android.text.format.DateFormat.format(formato, date).toString();
+        } catch (Exception ex) {
+            return null;
+        }
     }
 
     public static String removerMascara(String texto, String mascara) {

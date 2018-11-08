@@ -16,8 +16,8 @@ public class TipoOcorrenciaController {
         TipoOcorrenciaDAO.editar(tipoOcorrencia);
     }
 
-    public static ArrayList<TipoOcorrencia>  retornaListaTipoOcorrencia() throws Exception {
-        return TipoOcorrenciaDAO.retornaListaTipoOcorrencia();
+    public static ArrayList<TipoOcorrencia>  retornaListaTipoOcorrencia(String whereStatus) throws Exception {
+        return TipoOcorrenciaDAO.retornaListaTipoOcorrencia(whereStatus);
     }
 
     public static ErroValidacao validarDados(TipoOcorrencia tipoOcorrencia) throws Exception {

@@ -18,8 +18,8 @@ public class BemMaterialController {
         BemMaterialDAO.editar(bemMaterial);
     }
 
-    public static ArrayList<BemMaterial>  retornaListaBemMaterial() throws Exception {
-        return BemMaterialDAO.retornaListaBemMaterial();
+    public static ArrayList<BemMaterial>  retornaListaBemMaterial(String whereStatus) throws Exception {
+        return BemMaterialDAO.retornaListaBemMaterial(whereStatus);
     }
 
     public static ErroValidacao validarDados(BemMaterial bemMaterial) throws Exception {

@@ -46,6 +46,14 @@
         <activity
             android:name=".View.OrdemServico.ActOrdemServicoCadastro"
             android:label="@string/title_activity_act_ordem_servico_cadastro"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ActBemMaterialPesquisar"
+            android:label="@string/title_activity_act_bem_material_pesquisar"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".View.BensMateriais.ActBensMateriaisPesquisar"
+            android:label="@string/title_activity_act_bens_materiais_pesquisar"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

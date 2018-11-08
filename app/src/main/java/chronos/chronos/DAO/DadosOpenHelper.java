@@ -20,6 +20,8 @@ public class DadosOpenHelper extends SQLiteOpenHelper {
         dadosOpenHelper = new DadosOpenHelper(context);
 
         conexao = dadosOpenHelper.getWritableDatabase();
+
+        conexao.execSQL("UPDATE OrdemServico SET status='C' WHERE id IN(1,2)");
     }
 
     public DadosOpenHelper(Context context){

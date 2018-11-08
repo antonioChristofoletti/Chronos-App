@@ -16,7 +16,6 @@ import chronos.chronos.Geral.Geral;
 import chronos.chronos.Model.ErroValidacao;
 import chronos.chronos.Model.TipoOcorrencia;
 import chronos.chronos.R;
-import chronos.chronos.View.ActCadastroUsuario;
 
 public class ActTiposOcorrenciasCadastro extends AppCompatActivity {
 
@@ -110,7 +109,7 @@ public class ActTiposOcorrenciasCadastro extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.act_act_inc_alt, menu);
+        menuInflater.inflate(R.menu.menu_act_cadastro_geral, menu);
 
         if(tipoOcorrenciaEdicao != null) {
             menu.getItem(0).setTitle("Editar");

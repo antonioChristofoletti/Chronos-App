@@ -12,4 +12,6 @@
     <string name="title_activity_act_bens_materiais_cadastro">Cadastrar</string>
     <string name="title_activity_act_ordem_servico">Ordens de Serviço</string>
     <string name="title_activity_act_ordem_servico_cadastro">Cadastrar</string>
+    <string name="title_activity_act_bem_material_pesquisar">ActBemMaterialPesquisar</string>
+    <string name="title_activity_act_bens_materiais_pesquisar">Pesquisar Bens Materiais</string>
 </resources>

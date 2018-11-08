@@ -8,4 +8,186 @@
     tools:context=".View.OrdemServico.ActOrdemServicoCadastro"
     tools:showIn="@layout/act_ordem_servico_cadastro">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/lblDataInicial_act_ordem_servico_cadastro"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="Data Inicial"
+                android:textSize="14dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/txtDataInicial_act_ordem_servico_cadastro"
+                android:layout_width="0dp"
+                android:layout_height="46dp"
+                android:ems="10"
+                android:hint="Data Inicial da O.S"
+                android:imeOptions="actionNext"
+                android:inputType="datetime"
+                android:maxLength="16"
+                android:textSize="16dp"
+                app:layout_constraintEnd_toEndOf="@+id/lblDataInicial_act_ordem_servico_cadastro"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/lblDataInicial_act_ordem_servico_cadastro"
+                app:layout_constraintTop_toBottomOf="@+id/lblDataInicial_act_ordem_servico_cadastro" />
+
+            <TextView
+                android:id="@+id/lblDataFinal_act_ordem_servico_cadastro"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Data Final"
+                android:textSize="14dp"
+                app:layout_constraintEnd_toEndOf="@+id/txtDataInicial_act_ordem_servico_cadastro"
+                app:layout_constraintStart_toStartOf="@+id/txtDataInicial_act_ordem_servico_cadastro"
+                app:layout_constraintTop_toBottomOf="@+id/txtDataInicial_act_ordem_servico_cadastro" />
+
+            <EditText
+                android:id="@+id/txtDataFinal_act_ordem_servico_cadastro"
+                android:layout_width="0dp"
+                android:layout_height="46dp"
+                android:ems="10"
+                android:hint="Data Final da O.S"
+                android:imeOptions="actionNext"
+                android:inputType="datetime"
+                android:maxLength="16"
+                android:textSize="16dp"
+                app:layout_constraintEnd_toEndOf="@+id/lblDataFinal_act_ordem_servico_cadastro"
+                app:layout_constraintStart_toStartOf="@+id/lblDataFinal_act_ordem_servico_cadastro"
+                app:layout_constraintTop_toBottomOf="@+id/lblDataFinal_act_ordem_servico_cadastro" />
+
+            <TextView
+                android:id="@+id/lblBemMaterial_content_act_ordem_servico_cadastro"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Bem Material"
+                android:textSize="14dp"
+                app:layout_constraintEnd_toEndOf="@+id/txtDataFinal_act_ordem_servico_cadastro"
+                app:layout_constraintStart_toStartOf="@+id/txtDataFinal_act_ordem_servico_cadastro"
+                app:layout_constraintTop_toBottomOf="@+id/txtDataFinal_act_ordem_servico_cadastro" />
+
+            <EditText
+                android:id="@+id/txtBemMaterial_content_act_ordem_servico_cadastro"
+                android:layout_width="0dp"
+                android:layout_height="46dp"
+                android:digits="@string/apenasFormatoTelefone"
+                android:ems="10"
+                android:enabled="false"
+                android:hint="Bem Material"
+                android:imeOptions="actionNext"
+                android:inputType="text"
+                android:textColor="@drawable/edittext_armazena_pesquisa"
+                android:textSize="16dp"
+                app:layout_constraintEnd_toStartOf="@+id/imageView_pesquisarBemMaterial_content_act_ordem_servico_cadastro"
+                app:layout_constraintStart_toStartOf="@+id/lblBemMaterial_content_act_ordem_servico_cadastro"
+                app:layout_constraintTop_toBottomOf="@+id/lblBemMaterial_content_act_ordem_servico_cadastro" />
+
+            <ImageView
+                android:id="@+id/imageView_pesquisarBemMaterial_content_act_ordem_servico_cadastro"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/button_search"
+                android:src="@drawable/baseline_search_white_24"
+                app:layout_constraintBottom_toBottomOf="@+id/txtBemMaterial_content_act_ordem_servico_cadastro"
+                app:layout_constraintEnd_toEndOf="@+id/lblBemMaterial_content_act_ordem_servico_cadastro"
+                app:layout_constraintTop_toBottomOf="@+id/lblBemMaterial_content_act_ordem_servico_cadastro" />
+
+            <TextView
+                android:id="@+id/lblTipoOcorrencia_content_act_ordem_servico_cadastro"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Tipo Ocorrência"
+                android:textSize="14dp"
+                app:layout_constraintEnd_toEndOf="@+id/imageView_pesquisarBemMaterial_content_act_ordem_servico_cadastro"
+                app:layout_constraintStart_toStartOf="@+id/txtBemMaterial_content_act_ordem_servico_cadastro"
+                app:layout_constraintTop_toBottomOf="@+id/txtBemMaterial_content_act_ordem_servico_cadastro" />
+
+
+            <Spinner
+                android:id="@+id/spinnerTipoOcorrencia_content_act_ordem_servico_cadastro"
+                android:layout_width="0dp"
+                android:layout_height="46dp"
+                android:layout_marginBottom="8dp"
+                android:textSize="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/lblTipoOcorrencia_content_act_ordem_servico_cadastro"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/lblTipoOcorrencia_content_act_ordem_servico_cadastro"
+                app:layout_constraintTop_toBottomOf="@+id/lblTipoOcorrencia_content_act_ordem_servico_cadastro"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/lblStatus_content_act_ordem_servico_cadastro"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Status da O.S"
+                android:textSize="14dp"
+                app:layout_constraintEnd_toEndOf="@+id/spinnerTipoOcorrencia_content_act_ordem_servico_cadastro"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/spinnerTipoOcorrencia_content_act_ordem_servico_cadastro"
+                app:layout_constraintTop_toBottomOf="@+id/spinnerTipoOcorrencia_content_act_ordem_servico_cadastro" />
+
+            <Spinner
+                android:id="@+id/spinnerStatus_content_act_ordem_servico_cadastro"
+                android:layout_width="0dp"
+                android:layout_height="46dp"
+                android:layout_marginBottom="8dp"
+                android:textSize="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/lblStatus_content_act_ordem_servico_cadastro"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/lblStatus_content_act_ordem_servico_cadastro"
+                app:layout_constraintTop_toBottomOf="@+id/lblStatus_content_act_ordem_servico_cadastro"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/lblObservacao_content_act_ordem_servico_cadastro"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Observação"
+                android:textSize="14dp"
+                app:layout_constraintEnd_toEndOf="@+id/spinnerStatus_content_act_ordem_servico_cadastro"
+                app:layout_constraintStart_toStartOf="@+id/spinnerStatus_content_act_ordem_servico_cadastro"
+                app:layout_constraintTop_toBottomOf="@+id/spinnerStatus_content_act_ordem_servico_cadastro" />
+
+            <EditText
+                android:id="@+id/txtObservacao_content_act_ordem_servico_cadastro"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:ems="10"
+                android:gravity="top|left"
+                android:hint="Observação da O.S"
+                android:inputType="textMultiLine"
+                android:maxLines="10"
+                android:minLines="2"
+                android:scrollbars="vertical"
+                android:textSize="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/lblObservacao_content_act_ordem_servico_cadastro"
+                app:layout_constraintStart_toStartOf="@+id/lblObservacao_content_act_ordem_servico_cadastro"
+                app:layout_constraintTop_toBottomOf="@+id/lblObservacao_content_act_ordem_servico_cadastro" />
+
+
+        </android.support.constraint.ConstraintLayout>
+
+    </ScrollView>
+
 </android.support.constraint.ConstraintLayout>

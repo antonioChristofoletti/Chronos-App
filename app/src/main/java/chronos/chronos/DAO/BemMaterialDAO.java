@@ -5,6 +5,7 @@ import android.database.Cursor;
 
 import java.util.ArrayList;
 
+import chronos.chronos.Geral.Geral;
 import chronos.chronos.Model.BemMaterial;
 
 public abstract  class BemMaterialDAO {
@@ -31,10 +32,17 @@ public abstract  class BemMaterialDAO {
         DadosOpenHelper.getConexao().insertOrThrow("BemMaterial", null, contentValues);
     }
 
-    public static ArrayList<BemMaterial> retornaListaBemMaterial() throws Exception {
+    public static ArrayList<BemMaterial> retornaListaBemMaterial(String whereStatus) throws Exception {
         try {
-            StringBuilder sql = new StringBuilder();
-            sql.append("SELECT * FROM BemMaterial ORDER BY status, localizacao, descricao");
+            String sql = "SELECT * FROM BemMaterial WHERE @WHERE ORDER BY status, localizacao, descricao";
+
+            String where = "";
+            if(!Geral.isCampoVazio(whereStatus))
+                where += whereStatus + " AND ";
+
+            where += " 1=1";
+
+            sql = sql.replace("@WHERE", where);
 
             Cursor resultado = DadosOpenHelper.getConexao().rawQuery(sql.toString(), null);
 

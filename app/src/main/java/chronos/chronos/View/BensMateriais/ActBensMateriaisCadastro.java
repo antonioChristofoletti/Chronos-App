@@ -12,12 +12,10 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import chronos.chronos.Controller.BemMaterialController;
-import chronos.chronos.Controller.TipoOcorrenciaController;
 import chronos.chronos.DAO.BemMaterialDAO;
 import chronos.chronos.Geral.Geral;
 import chronos.chronos.Model.BemMaterial;
 import chronos.chronos.Model.ErroValidacao;
-import chronos.chronos.Model.TipoOcorrencia;
 import chronos.chronos.R;
 
 public class ActBensMateriaisCadastro extends AppCompatActivity {
@@ -121,7 +119,7 @@ public class ActBensMateriaisCadastro extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.act_act_inc_alt, menu);
+        menuInflater.inflate(R.menu.menu_act_cadastro_geral, menu);
 
         if(bemMaterialEdicao != null) {
             menu.getItem(0).setTitle("Editar");

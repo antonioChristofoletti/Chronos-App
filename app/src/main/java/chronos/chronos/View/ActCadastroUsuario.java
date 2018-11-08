@@ -157,7 +157,7 @@ public class ActCadastroUsuario extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.act_act_inc_alt, menu);
+        menuInflater.inflate(R.menu.menu_act_cadastro_geral, menu);
 
         if(usuarioEdicao != null) {
             menu.getItem(0).setTitle("Editar");

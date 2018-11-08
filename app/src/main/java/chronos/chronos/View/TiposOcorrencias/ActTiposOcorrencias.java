@@ -75,7 +75,7 @@ public class ActTiposOcorrencias extends AppCompatActivity {
         ArrayList<TipoOcorrencia> listaTipoOcorrencia = new ArrayList<>();
 
         try {
-            listaTipoOcorrencia = TipoOcorrenciaController.retornaListaTipoOcorrencia();
+            listaTipoOcorrencia = TipoOcorrenciaController.retornaListaTipoOcorrencia(null);
         } catch (Exception e) {
             Toast.makeText(this, "Erro ao retornar lista de tipo de ocorrência. Erro: " + e.getMessage(), Toast.LENGTH_LONG).show();
         }
