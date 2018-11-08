@@ -16,7 +16,7 @@ import android.widget.Toast;
 import chronos.chronos.Controller.UsuarioController;
 import chronos.chronos.Model.Usuario;
 import chronos.chronos.R;
-import chronos.chronos.View.ActCadastroUsuario;
+import chronos.chronos.View.Usuario.ActCadastroUsuario;
 
 public class ActPrincipal extends AppCompatActivity {
 

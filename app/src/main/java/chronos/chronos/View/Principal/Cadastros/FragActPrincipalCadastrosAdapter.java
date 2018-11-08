@@ -10,14 +10,15 @@ import android.widget.TextView;
 import chronos.chronos.R;
 
 public class FragActPrincipalCadastrosAdapter extends BaseAdapter {
-    String[] titulos = {"Tipos Ocorrências","Bens Materiais"};
+    String[] titulos = {"Bens Materiais", "Serviços", "Tipos Ocorrências"};
 
-    int[] imagens = {R.drawable.ic_truck_delivery_grey600_24dp,R.drawable.ic_robot_industrial_grey600_24dp};
+    int[] imagens = {R.drawable.ic_robot_industrial_grey600_24dp,
+            R.drawable.ic_worker_grey600_24dp,
+            R.drawable.ic_truck_delivery_grey600_24dp};
 
     AppCompatActivity activity;
 
-    public FragActPrincipalCadastrosAdapter(AppCompatActivity activity)
-    {
+    public FragActPrincipalCadastrosAdapter(AppCompatActivity activity) {
         this.activity = activity;
     }
 

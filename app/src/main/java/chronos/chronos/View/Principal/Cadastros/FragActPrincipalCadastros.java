@@ -13,6 +13,8 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import chronos.chronos.View.BensMateriais.ActBensMateriais;
+import chronos.chronos.View.Servicos.ActServicos;
+import chronos.chronos.View.Servicos.ActServicosCadastro;
 import chronos.chronos.View.TiposOcorrencias.ActTiposOcorrencias;
 import chronos.chronos.R;
 
@@ -57,19 +59,27 @@ public class FragActPrincipalCadastros extends Fragment {
 
                 String titulo = fragActPrincipalCadastrosAdapter.titulos[position];
 
+                Intent intent = null;
+
                 switch (titulo) {
                     case "Tipos Ocorrências": {
-                        Intent intent = new Intent(appCompatActivity, ActTiposOcorrencias.class);
-                        startActivity(intent);
+                        intent = new Intent(appCompatActivity, ActTiposOcorrencias.class);
                         break;
                     }
 
                     case "Bens Materiais": {
-                        Intent intent = new Intent(appCompatActivity, ActBensMateriais.class);
-                        startActivity(intent);
+                        intent = new Intent(appCompatActivity, ActBensMateriais.class);;
+                        break;
+                    }
+
+                    case "Serviços": {
+                        intent = new Intent(appCompatActivity, ActServicos.class);
                         break;
                     }
                 }
+
+                if(intent != null)
+                    startActivity(intent);
             }
         });
     }

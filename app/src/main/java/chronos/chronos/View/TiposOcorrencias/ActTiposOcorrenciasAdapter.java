@@ -56,7 +56,7 @@ public class ActTiposOcorrenciasAdapter extends BaseAdapter{
         if (tipoOcorrencia.getStatus().equals("Ativo"))
             txtStatus.setTextColor(ContextCompat.getColor(this.activity, R.color.colorGreen_status_ativo));
         else
-            txtStatus.setTextColor(Color.RED);
+            txtStatus.setTextColor(ContextCompat.getColor(this.activity, R.color.ItemCancelado));
 
         return convertView;
     }

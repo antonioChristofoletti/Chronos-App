@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".View.ActCadastroUsuario"
+            android:name=".View.Usuario.ActCadastroUsuario"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -54,6 +54,14 @@
         <activity
             android:name=".View.BensMateriais.ActBensMateriaisPesquisar"
             android:label="@string/title_activity_act_bens_materiais_pesquisar"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".View.Servicos.ActServicos"
+            android:label="@string/title_activity_act_servicos"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".View.Servicos.ActServicosCadastro"
+            android:label="@string/title_activity_act_servicos_cadastro"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

@@ -1,4 +1,4 @@
-package chronos.chronos.View;
+package chronos.chronos.View.Usuario;
 
 import android.content.Intent;
 import android.os.Bundle;
