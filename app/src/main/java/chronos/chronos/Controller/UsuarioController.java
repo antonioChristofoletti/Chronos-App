@@ -29,7 +29,7 @@ public abstract class UsuarioController {
             return new ErroValidacao("numeroTelefone", "Informe um telefone válido");
         }
 
-        if (Geral.isEmailValido(u.getEmail())) {
+        if (!Geral.isEmailValido(u.getEmail())) {
             return new ErroValidacao("email", "Informe um e-mail válido");
         }
 

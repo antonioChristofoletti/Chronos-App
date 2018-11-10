@@ -27,7 +27,7 @@ public abstract  class OrdemServicoDAO {
         sql.append("       idTipoOcorrencia INTEGER NOT NULL,");
         sql.append("       idUsuario        INTEGER NOT NULL,");
         sql.append("       idBemMaterial    INTEGER NOT NULL,");
-        sql.append("       idServico    INTEGER NOT NULL,");
+        sql.append("       idServico        INTEGER NOT NULL,");
         sql.append("       status           VARCHAR(1) NOT NULL)");
 
         return sql.toString();

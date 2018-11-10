@@ -138,7 +138,7 @@ public abstract class Geral {
     }
 
     public static boolean isEmailValido(String email) {
-        if (!isCampoVazio(email) || !Patterns.EMAIL_ADDRESS.matcher(email).matches())
+        if (isCampoVazio(email) || !Patterns.EMAIL_ADDRESS.matcher(email).matches())
             return false;
 
         return true;

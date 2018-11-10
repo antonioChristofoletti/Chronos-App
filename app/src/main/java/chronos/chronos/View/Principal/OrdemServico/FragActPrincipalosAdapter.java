@@ -59,7 +59,6 @@ public class FragActPrincipalosAdapter extends BaseAdapter {
         txtStatusOS.setTextColor(ContextCompat.getColor(activity, R.color.ItemCancelado));
 
         String status = "Cancelado";
-        String periodo = "";
         if(ordemServico.getStatus().equals("Ativo")) {
             if (ordemServico.getDataInicial() == null && ordemServico.getDataFinal() == null) {
                 status = "Pendente";
@@ -68,19 +67,23 @@ public class FragActPrincipalosAdapter extends BaseAdapter {
 
             if (ordemServico.getDataInicial() != null && ordemServico.getDataFinal() == null) {
                 status = "Em Execução";
-                periodo = Geral.formataData("dd/MM/yyyy HH:mm", ordemServico.getDataInicial());
                 txtStatusOS.setTextColor(ContextCompat.getColor(activity, R.color.ItemEmExecucao));
             }
 
             if (ordemServico.getDataInicial() != null && ordemServico.getDataFinal() != null) {
                 status = "Finalizado";
-                periodo = Geral.formataData("dd/MM/yyyy HH:mm", ordemServico.getDataInicial()) + " - " + Geral.formataData("dd/MM/yyyy HH:mm", ordemServico.getDataFinal());
                 txtStatusOS.setTextColor(ContextCompat.getColor(activity, R.color.ItemFinalizado));
             }
         }
 
         txtStatusOS.setText(status);
 
+        String periodo = "";
+        if (ordemServico.getDataInicial() != null && ordemServico.getDataFinal() == null)
+            periodo = Geral.formataData("dd/MM/yyyy HH:mm", ordemServico.getDataInicial());
+
+        if (ordemServico.getDataInicial() != null && ordemServico.getDataFinal() != null)
+            periodo = Geral.formataData("dd/MM/yyyy HH:mm", ordemServico.getDataInicial()) + " - " + Geral.formataData("dd/MM/yyyy HH:mm", ordemServico.getDataFinal());
 
         txtPeriodoOS.setText(periodo);
 
