@@ -1,6 +1,5 @@
 package chronos.chronos.View.BensMateriais;
 
-import android.graphics.Color;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -11,7 +10,6 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import chronos.chronos.Model.BemMaterial;
-import chronos.chronos.Model.TipoOcorrencia;
 import chronos.chronos.R;
 
 public class ActBensMateriaisAdapter extends BaseAdapter{

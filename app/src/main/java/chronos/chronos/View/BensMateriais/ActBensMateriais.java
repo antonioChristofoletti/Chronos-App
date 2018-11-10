@@ -39,6 +39,8 @@ public class ActBensMateriais extends AppCompatActivity {
         super.onResume();
     }
 
+    //region METODOS
+
     public void configurarComponentes() {
         listViewBensMateriais = (ListView) findViewById(R.id.listView_bens_materiais_content_act_bens_materiais);
 
@@ -88,6 +90,8 @@ public class ActBensMateriais extends AppCompatActivity {
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
     }
+
+    //endregion
 
     //region EVENTOS MENU
 

@@ -32,10 +32,10 @@ public abstract class ActOrdemServicoPesquisarData {
         final EditText txtDataInicial = (EditText) mview.findViewById(R.id.txtDataInicial_act_ordem_servico_pesquisar_data);
         final EditText txtDataFinal = (EditText) mview.findViewById(R.id.txtDataFinal_act_ordem_servico_pesquisar_data);
 
-        if(dataInicial != null)
+        if (dataInicial != null)
             txtDataInicial.setText(Geral.formataData("dd/MM/yyyy", dataInicial));
 
-        if(dataFinal != null)
+        if (dataFinal != null)
             txtDataFinal.setText(Geral.formataData("dd/MM/yyyy", dataFinal));
 
         txtDataInicial.addTextChangedListener(new MaskWatcher(MaskWatcher.FORMAT_DATE));
@@ -63,8 +63,7 @@ public abstract class ActOrdemServicoPesquisarData {
                     return;
                 }
 
-                if(dataInicial != null && dataFinal != null && dataInicial.after(dataFinal))
-                {
+                if (dataInicial != null && dataFinal != null && dataInicial.after(dataFinal)) {
                     Toast.makeText(view.getContext(), "A data inicial é maior que a data final", Toast.LENGTH_LONG).show();
                     txtDataInicial.requestFocus();
                     return;

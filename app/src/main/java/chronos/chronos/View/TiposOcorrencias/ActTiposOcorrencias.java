@@ -39,6 +39,8 @@ public class ActTiposOcorrencias extends AppCompatActivity {
         super.onResume();
     }
 
+    //region METODOS
+
     public void configurarComponentes() {
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.floatingActionButton_act_tipos_ocorrencias);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -90,6 +92,7 @@ public class ActTiposOcorrencias extends AppCompatActivity {
         listViewTiposOcorrencias.setAdapter(actTiposOcorrenciasAdapter);
     }
 
+    //endregion
 
     //region EVENTOS MENU
 

@@ -64,6 +64,8 @@ public class FragActPrincipalos extends Fragment implements InterfaceInjecaoDepe
         super.onResume();
     }
 
+    //region METODOS
+
     public void carregarOrdensDeServicoListView(Date dataInicialWhere, Date dataFinalWhere) {
         ArrayList<OrdemServico> listaOrdemServico = null;
         try {
@@ -94,6 +96,8 @@ public class FragActPrincipalos extends Fragment implements InterfaceInjecaoDepe
 
         configurar_floatingActionButton_frag_ordemServico_frag_act_principal_os();
     }
+
+    //endregion
 
     //region CONFIGURACAO FLOATING ACTION BUTTON
 

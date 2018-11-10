@@ -40,6 +40,8 @@ public class ActBensMateriaisPesquisar extends AppCompatActivity {
         configurarComponentes();
     }
 
+    //region METODOS
+
     public void configurarComponentes() {
         listViewBensMateriais = (ListView) findViewById(R.id.listView_bensMateriais_act_bens_materiais_pesquisar);
 
@@ -79,6 +81,8 @@ public class ActBensMateriaisPesquisar extends AppCompatActivity {
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
     }
+
+    //endregion
 
     //region EVENTOS MENU
 

@@ -14,7 +14,6 @@ import android.widget.Toast;
 
 import chronos.chronos.Controller.UsuarioController;
 import chronos.chronos.DAO.DadosOpenHelper;
-import chronos.chronos.DAO.UsuarioDAO;
 import chronos.chronos.Geral.Geral;
 import chronos.chronos.Geral.MaskWatcher;
 import chronos.chronos.Model.ErroValidacao;
@@ -144,14 +143,14 @@ public class ActCadastroUsuario extends AppCompatActivity {
             }
 
             if(usuarioEdicao == null) {
-                UsuarioDAO.inserir(u);
+                UsuarioController.inserir(u);
                 Intent intent = new Intent(this, ActPrincipal.class);
                 startActivity(intent);
             }
             else {
                 u.setId(usuarioEdicao.getId());
 
-                UsuarioDAO.editar(u);
+                UsuarioController.editar(u);
             }
             finish();
         } catch (Exception ex) {

@@ -1,6 +1,5 @@
 package chronos.chronos.View.TiposOcorrencias;
 
-import android.graphics.Color;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;

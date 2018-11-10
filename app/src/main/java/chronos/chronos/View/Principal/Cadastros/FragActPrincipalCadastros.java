@@ -68,7 +68,8 @@ public class FragActPrincipalCadastros extends Fragment {
                     }
 
                     case "Bens Materiais": {
-                        intent = new Intent(appCompatActivity, ActBensMateriais.class);;
+                        intent = new Intent(appCompatActivity, ActBensMateriais.class);
+                        ;
                         break;
                     }
 
@@ -78,7 +79,7 @@ public class FragActPrincipalCadastros extends Fragment {
                     }
                 }
 
-                if(intent != null)
+                if (intent != null)
                     startActivity(intent);
             }
         });

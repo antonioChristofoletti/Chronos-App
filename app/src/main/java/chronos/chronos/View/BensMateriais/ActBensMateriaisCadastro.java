@@ -12,7 +12,6 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import chronos.chronos.Controller.BemMaterialController;
-import chronos.chronos.DAO.BemMaterialDAO;
 import chronos.chronos.Geral.Geral;
 import chronos.chronos.Model.BemMaterial;
 import chronos.chronos.Model.ErroValidacao;
@@ -111,9 +110,9 @@ public class ActBensMateriaisCadastro extends AppCompatActivity {
             }
 
             if (bemMaterialEdicao == null)
-                BemMaterialDAO.inserir(bemMaterial);
+                BemMaterialController.inserir(bemMaterial);
             else
-                BemMaterialDAO.editar(bemMaterial);
+                BemMaterialController.editar(bemMaterial);
 
             finish();
         } catch (Exception ex) {

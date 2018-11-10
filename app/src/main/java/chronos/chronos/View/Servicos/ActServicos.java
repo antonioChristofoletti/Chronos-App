@@ -42,6 +42,8 @@ public class ActServicos extends AppCompatActivity {
         super.onResume();
     }
 
+    //region METODOS
+
     public void configurarComponentes(){
         listViewServico = (ListView) findViewById(R.id.listView_servicos_content_act_servicos);
 
@@ -92,6 +94,9 @@ public class ActServicos extends AppCompatActivity {
         listViewServico.setAdapter(actServicosAdapter);
     }
 
+    //endregion
+
+    //region EVENTOS MENU
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -104,4 +109,6 @@ public class ActServicos extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    //endregion
 }
