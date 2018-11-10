@@ -110,14 +110,14 @@
                 app:layout_constraintTop_toBottomOf="@+id/lblBemMaterial_content_act_ordem_servico_cadastro" />
 
             <TextView
-                android:id="@+id/lblTipoOcorrencia_content_act_ordem_servico_cadastro"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="Tipo Ocorrência"
-                android:textSize="14dp"
-                app:layout_constraintEnd_toEndOf="@+id/imageView_pesquisarBemMaterial_content_act_ordem_servico_cadastro"
-                app:layout_constraintStart_toStartOf="@+id/txtBemMaterial_content_act_ordem_servico_cadastro"
-                app:layout_constraintTop_toBottomOf="@+id/txtBemMaterial_content_act_ordem_servico_cadastro" />
+            android:id="@+id/lblTipoOcorrencia_content_act_ordem_servico_cadastro"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Tipo Ocorrência"
+            android:textSize="14dp"
+            app:layout_constraintEnd_toEndOf="@+id/imageView_pesquisarBemMaterial_content_act_ordem_servico_cadastro"
+            app:layout_constraintStart_toStartOf="@+id/txtBemMaterial_content_act_ordem_servico_cadastro"
+            app:layout_constraintTop_toBottomOf="@+id/txtBemMaterial_content_act_ordem_servico_cadastro" />
 
 
             <Spinner
@@ -134,15 +134,39 @@
                 app:layout_constraintVertical_bias="0.0" />
 
             <TextView
+                android:id="@+id/lblServico_content_act_ordem_servico_cadastro"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Serviço"
+                android:textSize="14dp"
+                app:layout_constraintEnd_toEndOf="@+id/spinnerTipoOcorrencia_content_act_ordem_servico_cadastro"
+                app:layout_constraintStart_toStartOf="@+id/spinnerTipoOcorrencia_content_act_ordem_servico_cadastro"
+                app:layout_constraintTop_toBottomOf="@+id/spinnerTipoOcorrencia_content_act_ordem_servico_cadastro" />
+
+
+            <Spinner
+                android:id="@+id/spinnerServico_content_act_ordem_servico_cadastro"
+                android:layout_width="0dp"
+                android:layout_height="46dp"
+                android:layout_marginBottom="8dp"
+                android:textSize="20dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/lblServico_content_act_ordem_servico_cadastro"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/lblServico_content_act_ordem_servico_cadastro"
+                app:layout_constraintTop_toBottomOf="@+id/lblServico_content_act_ordem_servico_cadastro"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
                 android:id="@+id/lblStatus_content_act_ordem_servico_cadastro"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="Status da O.S"
                 android:textSize="14dp"
-                app:layout_constraintEnd_toEndOf="@+id/spinnerTipoOcorrencia_content_act_ordem_servico_cadastro"
+                app:layout_constraintEnd_toEndOf="@+id/spinnerServico_content_act_ordem_servico_cadastro"
                 app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/spinnerTipoOcorrencia_content_act_ordem_servico_cadastro"
-                app:layout_constraintTop_toBottomOf="@+id/spinnerTipoOcorrencia_content_act_ordem_servico_cadastro" />
+                app:layout_constraintStart_toStartOf="@+id/spinnerServico_content_act_ordem_servico_cadastro"
+                app:layout_constraintTop_toBottomOf="@+id/spinnerServico_content_act_ordem_servico_cadastro" />
 
             <Spinner
                 android:id="@+id/spinnerStatus_content_act_ordem_servico_cadastro"

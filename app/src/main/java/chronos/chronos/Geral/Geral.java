@@ -117,7 +117,7 @@ public abstract class Geral {
         AlertDialog.Builder dlg = new AlertDialog.Builder(context);
         dlg.setTitle(titulo);
         dlg.setMessage(mensagem);
-        dlg.setNeutralButton("OK", null);
+        dlg.setPositiveButton("OK", null);
         dlg.show();
     }
 

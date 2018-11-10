@@ -17,14 +17,15 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 import chronos.chronos.Controller.OrdemServicoController;
+import chronos.chronos.Controller.ServicoController;
 import chronos.chronos.Controller.TipoOcorrenciaController;
 import chronos.chronos.Controller.UsuarioController;
-import chronos.chronos.DAO.OrdemServicoDAO;
 import chronos.chronos.Geral.Geral;
 import chronos.chronos.Geral.MaskWatcher;
 import chronos.chronos.Model.BemMaterial;
 import chronos.chronos.Model.ErroValidacao;
 import chronos.chronos.Model.OrdemServico;
+import chronos.chronos.Model.Servico;
 import chronos.chronos.Model.TipoOcorrencia;
 import chronos.chronos.R;
 import chronos.chronos.View.BensMateriais.ActBensMateriaisPesquisar;
@@ -33,7 +34,9 @@ public class ActOrdemServicoCadastro extends AppCompatActivity {
 
     private OrdemServico ordemServicoEdicao;
     private BemMaterial bemMaterialPesquisado;
+
     private ArrayList<TipoOcorrencia> listaTipoOcorrencia;
+    private ArrayList<Servico> listaServico;
 
     private EditText txtDataInicial;
     private EditText txtDataFinal;
@@ -42,6 +45,7 @@ public class ActOrdemServicoCadastro extends AppCompatActivity {
 
     private Spinner spinnerStatusOS;
     private Spinner spinnerTipoOcorrencia;
+    private Spinner spinnerServico;
 
     private ImageView imageViewButton_pesquisarBemMaterial;
 
@@ -64,15 +68,17 @@ public class ActOrdemServicoCadastro extends AppCompatActivity {
 
             this.setTitle("Edição");
 
-            //  carregarDadosParaCampos(ordemServicoEdicao);
+            carregarDadosParaCampos(ordemServicoEdicao);
         }
     }
 
     @Override
     protected void onResume() {
 
-        if (aguardandoRetorno == null)
+        if (aguardandoRetorno == null) {
+            super.onResume();
             return;
+        }
 
         switch (aguardandoRetorno) {
             case "Bem Material Pesquisa": {
@@ -99,10 +105,10 @@ public class ActOrdemServicoCadastro extends AppCompatActivity {
 
     public void configurarComponentes() {
         txtDataInicial = (EditText) findViewById(R.id.txtDataInicial_act_ordem_servico_cadastro);
-        txtDataInicial.addTextChangedListener(new MaskWatcher(MaskWatcher.FORMAT_DATE));
+        txtDataInicial.addTextChangedListener(new MaskWatcher(MaskWatcher.FORMAT_DATE_HOUR));
 
         txtDataFinal = (EditText) findViewById(R.id.txtDataFinal_act_ordem_servico_cadastro);
-        txtDataFinal.addTextChangedListener(new MaskWatcher(MaskWatcher.FORMAT_DATE));
+        txtDataFinal.addTextChangedListener(new MaskWatcher(MaskWatcher.FORMAT_DATE_HOUR));
 
         txtBemMaterial = (EditText) findViewById(R.id.txtBemMaterial_content_act_ordem_servico_cadastro);
 
@@ -120,6 +126,16 @@ public class ActOrdemServicoCadastro extends AppCompatActivity {
 
         configurarspinnerStatus();
         configurarspinnerTipoOcorrencia();
+        configurarSpinnerSituacao();
+
+        configurarArrowBackMenu();
+    }
+
+    public void configurarArrowBackMenu() {
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
     }
 
     public void configurarspinnerStatus() {
@@ -150,19 +166,98 @@ public class ActOrdemServicoCadastro extends AppCompatActivity {
         }
     }
 
-    /*public void carregarDadosParaCampos(BemMaterial bemMaterial) {
-        txtDescricao.setText(bemMaterial.getDescricao());
+    public void configurarSpinnerSituacao() {
+        try {
+            spinnerServico = (Spinner) findViewById(R.id.spinnerServico_content_act_ordem_servico_cadastro);
 
-        txtLocalizacao.setText(bemMaterial.getLocalizacao());
+            listaServico = ServicoController.retornaListaServico("status = 'A'");
 
-        for (int i = 0; i < spinnerStatusMaterialEdicao.getAdapter().getCount(); i++) {
+            if (listaServico.size() == 0)
+                Geral.chamarAlertDialog(this, "Aviso", "Não há tipos de serviço cadastrados como ativos. Não será possível cadastrar ordens de serviço.");
 
-            if (bemMaterial.getStatus().equals(spinnerStatusMaterialEdicao.getAdapter().getItem(i))) {
-                spinnerStatusMaterialEdicao.setSelection(i);
+            String[] itens = new String[listaServico.size()];
+            int iTipoOcorrencia = 0;
+            for (Servico servico : listaServico)
+                itens[iTipoOcorrencia++] = servico.getDescricao();
+
+            ArrayAdapter adapterSituacao = new ArrayAdapter(this, R.layout.spinner_layout, itens);
+            spinnerServico.setAdapter(adapterSituacao);
+        } catch (Exception e) {
+            Toast.makeText(this, "Erro ao carregar os serviços. Erro: " + e.getMessage(), Toast.LENGTH_LONG).show();
+        }
+    }
+
+    public void carregarDadosParaCampos(OrdemServico ordemServico) {
+
+        if (ordemServico.getDataInicial() != null)
+            txtDataInicial.setText(Geral.formataData("dd/MM/yyyy HH:mm", ordemServico.getDataInicial()));
+
+        if (ordemServico.getDataFinal() != null)
+            txtDataFinal.setText(Geral.formataData("dd/MM/yyyy HH:mm", ordemServico.getDataFinal()));
+
+        txtBemMaterial.setText(ordemServico.getBemMaterial().getDescricao());
+        bemMaterialPesquisado = ordemServico.getBemMaterial();
+
+        carregarTipoOcorrenciaOrdemServicoEdicao(ordemServico);
+
+        carregarTipoServicoOrdemServicoEdicao(ordemServico);
+
+        for (int i = 0; i < spinnerStatusOS.getAdapter().getCount(); i++) {
+
+            if (ordemServico.getStatus().equals(spinnerStatusOS.getAdapter().getItem(i))) {
+                spinnerStatusOS.setSelection(i);
                 break;
             }
         }
-    }*/
+
+        txtObservacao.setText(ordemServico.getObservacao());
+    }
+
+    public void carregarTipoOcorrenciaOrdemServicoEdicao(OrdemServico ordemServico) {
+        boolean encontrou = false;
+        for (int i = 0; i < listaTipoOcorrencia.size() && !encontrou; i++) {
+
+            if (ordemServico.getTipoOcorrencia().getDescricao().equals(listaTipoOcorrencia.get(i).getDescricao())) {
+                spinnerTipoOcorrencia.setSelection(i);
+                encontrou = true;
+            }
+        }
+
+        if (!encontrou) {
+            listaTipoOcorrencia.add(ordemServico.getTipoOcorrencia());
+
+            String[] itens = new String[listaTipoOcorrencia.size()];
+            int iTipoOcorrencia = 0;
+            for (TipoOcorrencia tipoOcorrencia : listaTipoOcorrencia)
+                itens[iTipoOcorrencia++] = tipoOcorrencia.getDescricao();
+
+            ArrayAdapter adapterTurno = new ArrayAdapter(this, R.layout.spinner_layout, itens);
+            spinnerTipoOcorrencia.setAdapter(adapterTurno);
+        }
+    }
+
+    public void carregarTipoServicoOrdemServicoEdicao(OrdemServico ordemServico) {
+        boolean encontrou = false;
+        for (int i = 0; i < listaServico.size() && !encontrou; i++) {
+
+            if (ordemServico.getServico().getDescricao().equals(listaServico.get(i).getDescricao())) {
+                spinnerServico.setSelection(i);
+                encontrou = true;
+            }
+        }
+
+        if (!encontrou) {
+            listaServico.add(ordemServico.getServico());
+
+            String[] itens = new String[listaServico.size()];
+            int iTipoOcorrencia = 0;
+            for (Servico servico : listaServico)
+                itens[iTipoOcorrencia++] = servico.getDescricao();
+
+            ArrayAdapter adapterServico = new ArrayAdapter(this, R.layout.spinner_layout, itens);
+            spinnerServico.setAdapter(adapterServico);
+        }
+    }
 
     public void salvarOrdemServico() {
         try {
@@ -180,6 +275,9 @@ public class ActOrdemServicoCadastro extends AppCompatActivity {
 
             if (listaTipoOcorrencia.size() != 0)
                 ordemServico.setTipoOcorrencia(listaTipoOcorrencia.get(spinnerTipoOcorrencia.getSelectedItemPosition()));
+
+            if (listaServico.size() != 0)
+                ordemServico.setServico(listaServico.get(spinnerServico.getSelectedItemPosition()));
 
             ordemServico.setUsuario(UsuarioController.retornaUsuario());
 
@@ -202,14 +300,16 @@ public class ActOrdemServicoCadastro extends AppCompatActivity {
 
             if (ordemServicoEdicao == null)
                 OrdemServicoController.inserir(ordemServico);
-           /* else
-                OrdemServicoController.editar(ordemServico);*/
+            else
+                OrdemServicoController.editar(ordemServico);
 
             finish();
         } catch (Exception ex) {
             Geral.chamarAlertDialog(this, "Erro", "Erro ao salvar a ordem de serviço. Erro: " + ex.getMessage());
         }
     }
+
+    //endregion
 
     //region EVENTOS MENU
 
@@ -238,6 +338,10 @@ public class ActOrdemServicoCadastro extends AppCompatActivity {
             case R.id.act_autenticacao_menu_title_salvar: {
                 salvarOrdemServico();
                 break;
+            }
+
+            case android.R.id.home: {
+                finish();
             }
         }
 

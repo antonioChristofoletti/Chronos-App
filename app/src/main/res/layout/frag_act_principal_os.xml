@@ -6,35 +6,64 @@
     android:layout_height="match_parent"
     tools:context=".View.Principal.OrdemServico.FragActPrincipalos">
 
-
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/floatingActionButton_frag_ordemServico_frag_act_principal_os"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
-            android:layout_margin="@dimen/fab_margin"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
-            android:tint="@color/colorwhite"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:srcCompat="@android:drawable/ic_input_add" />
-
         <ListView
             android:id="@+id/listView_ordemServico_frag_act_principal_os"
-            android:layout_width="377dp"
+            android:layout_width="0dp"
             android:layout_height="0dp"
             android:divider="@color/colorPrimaryDark"
             android:dividerHeight="4px"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <com.github.clans.fab.FloatingActionMenu
+            android:id="@+id/floatingActionButton_frag_ordemServico_frag_act_principal_os"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            app:fab_colorNormal="@color/colorAccent"
+            app:fab_colorPressed="@color/colorAccent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:menu_colorNormal="@color/colorAccent"
+            app:menu_colorPressed="@color/colorAccent"
+            app:menu_labels_position="left">
+
+            <com.github.clans.fab.FloatingActionButton
+                android:id="@+id/floatingActionMenuFiltra_frag_ordemServico_frag_act_principal_os"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:fab_colorNormal="@color/colorAccent"
+                app:fab_label="Filtrar O.S"
+                app:fab_size="mini"
+                app:fab_colorPressed="@color/colorAccent"
+                app:fab_colorRipple="@color/colorAccent"
+                android:src="@drawable/baseline_search_white_24"/>
+
+            <com.github.clans.fab.FloatingActionButton
+                android:id="@+id/floatingActionMenuInserir_frag_ordemServico_frag_act_principal_os"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:fab_colorNormal="@color/colorAccent"
+                app:fab_colorPressed="@color/colorAccent"
+                app:fab_colorRipple="@color/colorAccent"
+                app:fab_label="Inserir O.S"
+                app:fab_size="mini"
+                app:menu_colorNormal="@color/colorAccent"
+                app:menu_colorPressed="@color/colorAccent"
+                android:src="@drawable/baseline_add_white_24"/>
+
+        </com.github.clans.fab.FloatingActionMenu>
 
     </android.support.constraint.ConstraintLayout>
 

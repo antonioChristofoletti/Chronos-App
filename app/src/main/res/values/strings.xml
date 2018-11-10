@@ -2,7 +2,7 @@
     <string name="app_name">Chronos</string>
     <string name="action_settings">Settings</string>
     <string name="apenasFormatoTelefone">)(0123456789-</string>
-    <string name="title_activity_act_principal">Chronos</string>
+    <string name="title_activity_act_principal">Chronos - App</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -13,7 +13,7 @@
     <string name="title_activity_act_ordem_servico">Ordens de Serviço</string>
     <string name="title_activity_act_ordem_servico_cadastro">Cadastrar</string>
     <string name="title_activity_act_bem_material_pesquisar">ActBemMaterialPesquisar</string>
-    <string name="title_activity_act_bens_materiais_pesquisar">Pesquisar Bens Materiais</string>
+    <string name="title_activity_act_bens_materiais_pesquisar">Pesquisar</string>
     <string name="title_activity_act_servicos">Serviços</string>
     <string name="title_activity_act_servicos_cadastro">Cadastrar</string>
 </resources>

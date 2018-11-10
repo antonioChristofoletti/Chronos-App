@@ -9,7 +9,7 @@
     tools:showIn="@layout/act_tipos_ocorrencias">
 
     <ListView
-        android:id="@+id/listView_tiposOcorrencias_content_act_tipos_ocorrencias"
+        android:id="@+id/listView_bens_materiais_content_act_bens_materiais"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:divider="@color/colorPrimaryDark"

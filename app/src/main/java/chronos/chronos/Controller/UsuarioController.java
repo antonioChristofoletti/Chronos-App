@@ -5,7 +5,7 @@ import chronos.chronos.Geral.Geral;
 import chronos.chronos.Model.ErroValidacao;
 import chronos.chronos.Model.Usuario;
 
-public class UsuarioController {
+public abstract class UsuarioController {
 
     public static void inserir(Usuario u) throws Exception {
         UsuarioDAO.inserir(u);

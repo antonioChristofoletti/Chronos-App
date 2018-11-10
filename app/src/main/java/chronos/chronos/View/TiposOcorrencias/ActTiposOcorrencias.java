@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -49,7 +50,7 @@ public class ActTiposOcorrencias extends AppCompatActivity {
         });
 
 
-        listViewTiposOcorrencias = (ListView) findViewById(R.id.listView_tiposOcorrencias_content_act_tipos_ocorrencias);
+        listViewTiposOcorrencias = (ListView) findViewById(R.id.listView_bens_materiais_content_act_bens_materiais);
 
         listViewTiposOcorrencias.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -64,7 +65,16 @@ public class ActTiposOcorrencias extends AppCompatActivity {
             }
         });
 
+        configurarArrowBackMenu();
+
         atualizarListViewTiposOcorrencias();
+    }
+
+    public void configurarArrowBackMenu() {
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
     }
 
     public void atualizarListViewTiposOcorrencias() {
@@ -79,4 +89,22 @@ public class ActTiposOcorrencias extends AppCompatActivity {
         ActTiposOcorrenciasAdapter actTiposOcorrenciasAdapter = new ActTiposOcorrenciasAdapter(listaTipoOcorrencia, this);
         listViewTiposOcorrencias.setAdapter(actTiposOcorrenciasAdapter);
     }
+
+
+    //region EVENTOS MENU
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()) {
+
+            case android.R.id.home: {
+                finish();
+            }
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    //endregion
 }

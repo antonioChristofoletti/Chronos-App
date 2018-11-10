@@ -49,6 +49,7 @@ public class ActTiposOcorrenciasCadastro extends AppCompatActivity {
         txtDescricao = (EditText) findViewById(R.id.txtDescricao_content_act_tipos_ocorrencias_cadastro);
 
         configurarSpinnerTurno();
+        configurarArrowBackMenu();
     }
 
     public void configurarSpinnerTurno(){
@@ -56,6 +57,13 @@ public class ActTiposOcorrenciasCadastro extends AppCompatActivity {
         String[] itens = new String[]{"Ativo", "Cancelado"};
         ArrayAdapter adapterTurno = new ArrayAdapter(ActTiposOcorrenciasCadastro.this, R.layout.spinner_layout, itens);
         spinnerStatusTipoOcorrencia.setAdapter(adapterTurno);
+    }
+
+    public void configurarArrowBackMenu() {
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
     }
 
     public void carregarDadosParaCampos(TipoOcorrencia tipoOcorrencia) {
@@ -131,6 +139,10 @@ public class ActTiposOcorrenciasCadastro extends AppCompatActivity {
             case R.id.act_autenticacao_menu_title_salvar: {
                 salvarTipoOcorrencia();
                 break;
+            }
+
+            case android.R.id.home: {
+                finish();
             }
         }
 

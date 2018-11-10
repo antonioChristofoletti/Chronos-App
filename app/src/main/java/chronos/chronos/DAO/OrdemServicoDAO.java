@@ -9,6 +9,7 @@ import java.util.Date;
 import chronos.chronos.Geral.Geral;
 import chronos.chronos.Model.BemMaterial;
 import chronos.chronos.Model.OrdemServico;
+import chronos.chronos.Model.Servico;
 import chronos.chronos.Model.TipoOcorrencia;
 import chronos.chronos.Model.Usuario;
 
@@ -26,6 +27,7 @@ public abstract  class OrdemServicoDAO {
         sql.append("       idTipoOcorrencia INTEGER NOT NULL,");
         sql.append("       idUsuario        INTEGER NOT NULL,");
         sql.append("       idBemMaterial    INTEGER NOT NULL,");
+        sql.append("       idServico    INTEGER NOT NULL,");
         sql.append("       status           VARCHAR(1) NOT NULL)");
 
         return sql.toString();
@@ -39,33 +41,60 @@ public abstract  class OrdemServicoDAO {
         contentValues.put("idTipoOcorrencia", ordemServico.getTipoOcorrencia().getId());
         contentValues.put("idUsuario", ordemServico.getUsuario().getId());
         contentValues.put("idBemMaterial", ordemServico.getBemMaterial().getId());
+        contentValues.put("idServico", ordemServico.getServico().getId());
         contentValues.put("status", ordemServico.getStatus().substring(0,1));
 
         DadosOpenHelper.getConexao().insertOrThrow("OrdemServico", null, contentValues);
     }
+    public static void editar(OrdemServico ordemServico) throws Exception {
+        try {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("dataInicial", Geral.formataData("yyyy-MM-dd HH:mm:ss", ordemServico.getDataInicial()));
+            contentValues.put("dataFinal", Geral.formataData("yyyy-MM-dd HH:mm:ss", ordemServico.getDataFinal()));
+            contentValues.put("observacao", ordemServico.getObservacao());
+            contentValues.put("idTipoOcorrencia", ordemServico.getTipoOcorrencia().getId());
+            contentValues.put("idUsuario", ordemServico.getUsuario().getId());
+            contentValues.put("idBemMaterial", ordemServico.getBemMaterial().getId());
+            contentValues.put("idServico", ordemServico.getServico().getId());
+            contentValues.put("status", ordemServico.getStatus().substring(0,1));
 
-    public static ArrayList<OrdemServico> retornalistOrdemServico() throws Exception {
+            String[] parametros = new String[1];
+            parametros[0] = String.valueOf(ordemServico.getId());
+
+            DadosOpenHelper.getConexao().update("OrdemServico", contentValues, "id = ?", parametros);
+        } catch (Exception ex) {
+            throw new Exception("Erro ao editar a ordem de serviço. Erro: " + ex.getMessage());
+        }
+    }
+
+    public static ArrayList<OrdemServico> retornalistOrdemServico(Date dataInicialWhere, Date dataFinalWhere) throws Exception {
         try {
             StringBuilder sql = new StringBuilder();
 
             sql.append("SELECT a.* FROM (SELECT os.id idOS, (strftime('%d/%m/%Y %H:%M:%S', datetime(os.dataInicial))) dataInicial, (strftime('%d/%m/%Y %H:%M:%S', datetime(os.dataFinal))) dataFinal, os.observacao, os.status statusOS, ");
 
-            sql.append("bm.id idBemMaterial, bm.descricao descricaoBemMaterial, bm.localizacao localizacaoBemMaterial, bm.status statusBemMaterial,");
+            sql.append("bm.id idBemMaterial, bm.descricao descricaoBemMaterial, bm.localizacao localizacaoBemMaterial, bm.status statusBemMaterial, ");
 
-            sql.append("tio.id idTipoOcorrencia, tio.descricao descricaoTipoOcorrencia, tio.status statusTipoOcorrencia,");
+            sql.append("s.id idServico, s.descricao descricaoServico, s.status statusServico, ");
+
+            sql.append("tio.id idTipoOcorrencia, tio.descricao descricaoTipoOcorrencia, tio.status statusTipoOcorrencia, ");
 
             sql.append("u.id idUsuario, u.nome nomeUsuario, ");
 
             sql.append("CASE WHEN os.status = 'C' THEN 1 " +
-                            "WHEN os.dataInicial IS NOT NULL AND os.dataFinal IS NOT NULL THEN 2 " +
-                            "WHEN os.dataInicial IS NOT NULL AND os.dataFinal IS NULL THEN 3 " +
-                            "ELSE 4 END ordenacao FROM OrdemServico os ");
+                    "WHEN os.dataInicial IS NOT NULL AND os.dataFinal IS NOT NULL THEN 2 " +
+                    "WHEN os.dataInicial IS NOT NULL AND os.dataFinal IS NULL THEN 3 " +
+                    "ELSE 4 END ordenacao FROM OrdemServico os ");
 
             sql.append("INNER JOIN TipoOcorrencia tio ON tio.id = os.idTipoOcorrencia ");
             sql.append("INNER JOIN BemMaterial bm ON bm.id = os.idBemMaterial ");
-            sql.append("INNER JOIN Usuario u ON u.id = os.idUsuario) a ORDER BY a.ordenacao DESC");
+            sql.append("INNER JOIN Servico s ON s.id = os.idServico ");
+            sql.append("INNER JOIN Usuario u ON u.id = os.idUsuario ");
+            sql.append("WHERE @@WHERE) a ORDER BY a.ordenacao DESC ");
 
-            Cursor resultado = DadosOpenHelper.getConexao().rawQuery(sql.toString(), null);
+            String where = retornalistOrdemServico_geraWhere(dataInicialWhere, dataFinalWhere);
+
+            Cursor resultado = DadosOpenHelper.getConexao().rawQuery(sql.toString().replace("@@WHERE", where), null);
 
             ArrayList<OrdemServico> listaOrdemServico = new ArrayList<>();
 
@@ -124,6 +153,19 @@ public abstract  class OrdemServicoDAO {
 
                     //endregion
 
+                    //region SERVICO
+
+                    Servico servico = new Servico();
+                    servico.setId(resultado.getString(resultado.getColumnIndexOrThrow("idServico")));
+                    servico.setDescricao(resultado.getString(resultado.getColumnIndexOrThrow("descricaoServico")));
+                    String statusServico = resultado.getString(resultado.getColumnIndexOrThrow("statusServico"));
+                    if (statusServico.equals("A"))
+                        servico.setStatus("Ativo");
+                    else
+                        servico.setStatus("Cancelado");
+
+                    //endregion
+
                     //region USUARIO
 
                     Usuario usuario = new Usuario();
@@ -136,6 +178,8 @@ public abstract  class OrdemServicoDAO {
                     os.setBemMaterial(bemMaterial);
 
                     os.setTipoOcorrencia(tipoOcorrencia);
+
+                    os.setServico(servico);
 
                     os.setUsuario(usuario);
 
@@ -150,19 +194,16 @@ public abstract  class OrdemServicoDAO {
         }
     }
 
-    /*public static void editar(BemMaterial bemMaterial) throws Exception {
-        try {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("descricao", bemMaterial.getDescricao());
-            contentValues.put("localizacao", bemMaterial.getLocalizacao());
-            contentValues.put("status", bemMaterial.getStatus().substring(0, 1));
+    private static String retornalistOrdemServico_geraWhere(Date dataInicialWhere, Date dataFinalWhere){
+        String where = "";
+        if(dataInicialWhere != null)
+            where += "os.dataInicial >= '" + Geral.formataData("yyyy-MM-dd HH:mm", dataInicialWhere) + "' AND ";
 
-            String[] parametros = new String[1];
-            parametros[0] = String.valueOf(bemMaterial.getId());
+        if(dataFinalWhere != null)
+            where += "os.dataFinal <= '" + Geral.formataData("yyyy-MM-dd HH:mm", dataFinalWhere) + "' AND ";
 
-            DadosOpenHelper.getConexao().update("BemMaterial", contentValues, "id = ?", parametros);
-        } catch (Exception ex) {
-            throw new Exception("Erro ao editar bem material. Erro: " + ex.getMessage());
-        }
-    }*/
+        where += " 1=1";
+
+        return where;
+    }
 }

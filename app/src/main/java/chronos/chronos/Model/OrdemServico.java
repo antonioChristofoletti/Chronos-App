@@ -11,6 +11,7 @@ public class OrdemServico implements Serializable {
     private String observacao;
     private TipoOcorrencia tipoOcorrencia;
     private BemMaterial bemMaterial;
+    private Servico servico;
     private Usuario usuario;
     private String status;
 
@@ -60,6 +61,14 @@ public class OrdemServico implements Serializable {
 
     public void setBemMaterial(BemMaterial bemMaterial) {
         this.bemMaterial = bemMaterial;
+    }
+
+    public Servico getServico() {
+        return servico;
+    }
+
+    public void setServico(Servico servico) {
+        this.servico = servico;
     }
 
     public Usuario getUsuario() {

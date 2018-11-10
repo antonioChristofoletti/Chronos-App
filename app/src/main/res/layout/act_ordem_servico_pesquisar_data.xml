@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+    <TextView
+        android:id="@+id/lblDataInicial_act_ordem_servico_pesquisar_data"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:text="Data Inicial"
+        android:textSize="14dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/txtDataInicial_act_ordem_servico_pesquisar_data"
+        android:layout_width="0dp"
+        android:layout_height="46dp"
+        android:ems="10"
+        android:hint="Data Inicial da O.S"
+        android:imeOptions="actionNext"
+        android:inputType="datetime"
+        android:maxLength="10"
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="@+id/lblDataInicial_act_ordem_servico_pesquisar_data"
+        app:layout_constraintStart_toStartOf="@+id/lblDataInicial_act_ordem_servico_pesquisar_data"
+        app:layout_constraintTop_toBottomOf="@+id/lblDataInicial_act_ordem_servico_pesquisar_data" />
+
+    <TextView
+        android:id="@+id/lblDataFinal_act_ordem_servico_pesquisar_data"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Data Final"
+        android:textSize="14dp"
+        app:layout_constraintEnd_toEndOf="@+id/txtDataInicial_act_ordem_servico_pesquisar_data"
+        app:layout_constraintStart_toStartOf="@+id/txtDataInicial_act_ordem_servico_pesquisar_data"
+        app:layout_constraintTop_toBottomOf="@+id/txtDataInicial_act_ordem_servico_pesquisar_data" />
+
+    <EditText
+        android:id="@+id/txtDataFinal_act_ordem_servico_pesquisar_data"
+        android:layout_width="0dp"
+        android:layout_height="46dp"
+        android:ems="10"
+        android:hint="Data Final da O.S"
+        android:imeOptions="actionNext"
+        android:inputType="datetime"
+        android:maxLength="10"
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="@+id/lblDataFinal_act_ordem_servico_pesquisar_data"
+        app:layout_constraintStart_toStartOf="@+id/lblDataFinal_act_ordem_servico_pesquisar_data"
+        app:layout_constraintTop_toBottomOf="@+id/lblDataFinal_act_ordem_servico_pesquisar_data" />
+
+    <Button
+        android:id="@+id/btnPesquisar_act_ordem_servico_pesquisar_data"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/backgroundbuttongerenciador"
+        android:onClick="txtDataFinal_act_ordem_servico_pesquisar_data"
+        android:text="PESQUISAR"
+        android:textColor="@color/colorwhite"
+        app:layout_constraintEnd_toEndOf="@+id/txtDataFinal_act_ordem_servico_pesquisar_data"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/txtDataFinal_act_ordem_servico_pesquisar_data"
+        app:layout_constraintTop_toBottomOf="@+id/txtDataFinal_act_ordem_servico_pesquisar_data" />
+
+    <Button
+        android:id="@+id/btnCancelar_act_ordem_servico_pesquisar_data"
+        android:layout_width="0dp"
+        android:layout_height="47dp"
+        android:layout_marginBottom="24dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/backgroundbuttongerenciador"
+        android:onClick="onClickbtnProsseguir_content_act_cadastro_telefone_basico"
+        android:text="CANCELAR"
+        android:textColor="@color/colorwhite"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/btnPesquisar_act_ordem_servico_pesquisar_data"
+        app:layout_constraintStart_toStartOf="@+id/btnPesquisar_act_ordem_servico_pesquisar_data"
+        app:layout_constraintTop_toBottomOf="@+id/btnPesquisar_act_ordem_servico_pesquisar_data" />
+
+</android.support.constraint.ConstraintLayout>

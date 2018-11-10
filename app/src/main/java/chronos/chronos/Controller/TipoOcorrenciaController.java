@@ -7,7 +7,7 @@ import chronos.chronos.Geral.Geral;
 import chronos.chronos.Model.ErroValidacao;
 import chronos.chronos.Model.TipoOcorrencia;
 
-public class TipoOcorrenciaController {
+public abstract class TipoOcorrenciaController {
     public static void inserir(TipoOcorrencia tipoOcorrencia) throws Exception {
         TipoOcorrenciaDAO.inserir(tipoOcorrencia);
     }

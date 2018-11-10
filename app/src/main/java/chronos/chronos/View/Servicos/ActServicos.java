@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -59,6 +60,8 @@ public class ActServicos extends AppCompatActivity {
 
         atualizarListViewBensServicos();
 
+        configurarArrowBackMenu();
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.floatingActionButton_act_servicos);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,6 +70,13 @@ public class ActServicos extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    public void configurarArrowBackMenu() {
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
     }
 
     public void atualizarListViewBensServicos() {
@@ -80,5 +90,18 @@ public class ActServicos extends AppCompatActivity {
 
         ActServicosAdapter actServicosAdapter = new ActServicosAdapter(listaServicos, this);
         listViewServico.setAdapter(actServicosAdapter);
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()) {
+            case android.R.id.home: {
+                finish();
+            }
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

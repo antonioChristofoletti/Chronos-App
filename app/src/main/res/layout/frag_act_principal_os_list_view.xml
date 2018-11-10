@@ -50,7 +50,7 @@
 
     <TextView
         android:id="@+id/txtPeriodoOS_content_act_bens_material_list_view"
-        android:layout_width="184dp"
+        android:layout_width="214dp"
         android:layout_height="14dp"
         android:maxLines="1"
         android:text="01/02/2018 22:25 a 01/02/2018 22:25 "

@@ -83,6 +83,22 @@ public class ActCadastroUsuario extends AppCompatActivity {
         txtNumeroTelefone.addTextChangedListener(new MaskWatcher(MaskWatcher.FORMAT_FONE));
 
         configurarSpinnerTurno();
+
+        configurarArrowBackMenu();
+    }
+
+    public void configurarSpinnerTurno(){
+        spinnerTurno = (Spinner) findViewById(R.id.spinnerTurno);
+        String[] itemsTurno = new String[]{"A - Diurno", "B - Diurno", "C - Noturno", "D - Noturno"};
+        ArrayAdapter adapterTurno = new ArrayAdapter(ActCadastroUsuario.this, R.layout.spinner_layout, itemsTurno);
+        spinnerTurno.setAdapter(adapterTurno);
+    }
+
+    public void configurarArrowBackMenu() {
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
     }
 
     public void carregarDadosParaCampos(Usuario u) {
@@ -99,13 +115,6 @@ public class ActCadastroUsuario extends AppCompatActivity {
                 break;
             }
         }
-    }
-
-    public void configurarSpinnerTurno(){
-        spinnerTurno = (Spinner) findViewById(R.id.spinnerTurno);
-        String[] itemsTurno = new String[]{"A - Diurno", "B - Diurno", "C - Noturno", "D - Noturno"};
-        ArrayAdapter adapterTurno = new ArrayAdapter(ActCadastroUsuario.this, R.layout.spinner_layout, itemsTurno);
-        spinnerTurno.setAdapter(adapterTurno);
     }
 
     public void salvarUsuario() {
@@ -179,6 +188,10 @@ public class ActCadastroUsuario extends AppCompatActivity {
             case R.id.act_autenticacao_menu_title_salvar: {
                 salvarUsuario();
                 break;
+            }
+
+            case android.R.id.home: {
+                finish();
             }
         }
 

@@ -3,13 +3,12 @@ package chronos.chronos.Controller;
 import java.util.ArrayList;
 
 import chronos.chronos.DAO.BemMaterialDAO;
-import chronos.chronos.DAO.TipoOcorrenciaDAO;
 import chronos.chronos.Geral.Geral;
 import chronos.chronos.Model.BemMaterial;
 import chronos.chronos.Model.ErroValidacao;
-import chronos.chronos.Model.TipoOcorrencia;
 
-public class BemMaterialController {
+public abstract class BemMaterialController {
+
     public static void inserir(BemMaterial bemMaterial) throws Exception {
         BemMaterialDAO.inserir(bemMaterial);
     }
@@ -36,7 +35,6 @@ public class BemMaterialController {
         if(BemMaterialDAO.descricaoExiste(bemMaterial)){
             return new ErroValidacao("descricao", "A descrição informada já existe nessa localização");
         }
-
 
         return null;
     }

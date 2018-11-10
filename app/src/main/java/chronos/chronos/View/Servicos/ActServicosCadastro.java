@@ -52,6 +52,7 @@ public class ActServicosCadastro extends AppCompatActivity {
         txtDescricao = (EditText) findViewById(R.id.txtDescricao_content_act_servicos_cadastro);
 
         configurarspinnerStatus();
+        configurarArrowBackMenu();
     }
 
     public void configurarspinnerStatus(){
@@ -59,6 +60,13 @@ public class ActServicosCadastro extends AppCompatActivity {
         String[] itens = new String[]{"Ativo", "Cancelado"};
         ArrayAdapter adapterTurno = new ArrayAdapter(this, R.layout.spinner_layout, itens);
         spinnerStatusServico.setAdapter(adapterTurno);
+    }
+
+    public void configurarArrowBackMenu() {
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
     }
 
     public void carregarDadosParaCampos(Servico servico) {
@@ -134,6 +142,10 @@ public class ActServicosCadastro extends AppCompatActivity {
             case R.id.act_autenticacao_menu_title_salvar: {
                 salvarServico();
                 break;
+            }
+
+            case android.R.id.home: {
+                finish();
             }
         }
 

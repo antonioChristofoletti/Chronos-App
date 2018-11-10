@@ -1,9 +1,6 @@
 package chronos.chronos.View.BensMateriais;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
@@ -16,7 +13,6 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import chronos.chronos.Controller.BemMaterialController;
 import chronos.chronos.Model.BemMaterial;
@@ -62,12 +58,26 @@ public class ActBensMateriaisPesquisar extends AppCompatActivity {
             @Override
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
                 bemMaterialSelecionado = (BemMaterial) listViewBensMateriais.getAdapter().getItem(i);
-
                 finish();
-
                 return false;
             }
         });
+
+        listViewBensMateriais.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Toast.makeText(ActBensMateriaisPesquisar.this, "Pressione por alguns segundos o bem material desejado", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        configurarArrowBackMenu();
+    }
+
+    public void configurarArrowBackMenu() {
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
     }
 
     //region EVENTOS MENU
@@ -105,6 +115,18 @@ public class ActBensMateriaisPesquisar extends AppCompatActivity {
         });
 
         return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()) {
+            case android.R.id.home: {
+                finish();
+            }
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     //endregion

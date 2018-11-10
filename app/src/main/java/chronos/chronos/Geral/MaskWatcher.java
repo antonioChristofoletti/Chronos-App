@@ -9,7 +9,8 @@ public class MaskWatcher implements TextWatcher {
     public static final String FORMAT_RG = "##.###.###.##";
     public static final String FORMAT_FONE = "(###)#####-####";
     public static final String FORMAT_CEP = "#####-###";
-    public static final String FORMAT_DATE = "##/##/#### ##:##";
+    public static final String FORMAT_DATE_HOUR = "##/##/#### ##:##";
+    public static final String FORMAT_DATE = "##/##/####";
     public static final String FORMAT_HOUR = "##:##";
 
     private boolean isRunning = false;

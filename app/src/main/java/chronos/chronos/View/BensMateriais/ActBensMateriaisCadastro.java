@@ -53,6 +53,8 @@ public class ActBensMateriaisCadastro extends AppCompatActivity {
         txtLocalizacao = (EditText) findViewById(R.id.txtLocalizacao_content_act_tipos_ocorrencias_cadastro);
 
         configurarspinnerStatus();
+
+        configurarArrowBackMenu();
     }
 
     public void configurarspinnerStatus(){
@@ -60,6 +62,13 @@ public class ActBensMateriaisCadastro extends AppCompatActivity {
         String[] itens = new String[]{"Ativo", "Cancelado"};
         ArrayAdapter adapterTurno = new ArrayAdapter(this, R.layout.spinner_layout, itens);
         spinnerStatusMaterialEdicao.setAdapter(adapterTurno);
+    }
+
+    public void configurarArrowBackMenu() {
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
     }
 
     public void carregarDadosParaCampos(BemMaterial bemMaterial) {
@@ -141,6 +150,10 @@ public class ActBensMateriaisCadastro extends AppCompatActivity {
             case R.id.act_autenticacao_menu_title_salvar: {
                 salvarBemMaterial();
                 break;
+            }
+
+            case android.R.id.home: {
+                finish();
             }
         }
 

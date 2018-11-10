@@ -7,7 +7,7 @@ import chronos.chronos.Geral.Geral;
 import chronos.chronos.Model.ErroValidacao;
 import chronos.chronos.Model.Servico;
 
-public class ServicoController {
+public abstract class ServicoController {
     public static void inserir(Servico servico) throws Exception {
         ServicoDAO.inserir(servico);
     }
