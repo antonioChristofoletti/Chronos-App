@@ -61,7 +61,7 @@
                 android:layout_height="46dp"
                 android:digits="@string/apenasFormatoTelefone"
                 android:ems="10"
-                android:hint="Número do Funcionário"
+                android:hint="Número do Telefone"
                 android:imeOptions="actionNext"
                 android:inputType="number|text"
                 android:maxLength="15"
