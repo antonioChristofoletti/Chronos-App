@@ -13,18 +13,12 @@ The ideia of the app is control the activities of electricians, mechanics and ot
 
 ## Used Technologies
 
-- [Heroku](https://www.heroku.com/)
 - [Gradle](https://gradle.org/)
-- [Kotlin](https://kotlinlang.org/)
-  - [Javalin (API RestFull Frame Work)](https://javalin.io/)
-  - [JUnit5](https://junit.org/junit5/)
-    - [Ktor as Client HTTP Request](https://ktor.io/)
+- [Java](https://www.java.com/pt-BR/)
 
 ## Setup
 
 - Execute the app from an `IDE`, start the `fun main` from file `JavalinAppKt`;
-- Through a built `jar`: `java -jar GuiaBolsoDesafioTecnico.jar`;
-- Obs.: The system was configured for `deploy` on `Heruku`.
 
 ## Features
 
