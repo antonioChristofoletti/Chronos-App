@@ -1,14 +1,16 @@
 # College Chronos App
 
+This app was made for the discipline the Elective II (Eletiva II in portuguese) from the course the Technologist in Analysis and Development of Systems (Analise e Desenvolvimento de Sistemas in portuguese) – IFSP Campus Capivari.
+
 ## Purpose
 
-The app's idea is manage the activities of electricians, mechanics and others employees. This app was made for the discipline the Elective II (Eletiva II in portuguese) from the course the Technologist in Analysis and Development of Systems (Analise e Desenvolvimento de Sistemas in portuguese) – IFSP Campus Capivari.
+The app's idea is manage the activities of electricians, mechanics and others employees. 
 
-## Images
-
-[Application Video (It was used in the application presentation at the college)](https://www.youtube.com/watch?v=hfE02joJbJU)
+## Presentation
 
 ![Database Diagram](https://user-images.githubusercontent.com/31052642/110213509-21538480-7e7f-11eb-9122-7df729c4b376.png)
+
+[Application Video (It was used in the application presentation at the college)](https://www.youtube.com/watch?v=hfE02joJbJU)
 
 ## Used Technologies
 
