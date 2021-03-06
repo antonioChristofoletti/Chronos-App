@@ -1,6 +1,6 @@
 # College Chronos App
 
-This app was made for the discipline the Elective II (Eletiva II in portuguese) from the course the Technologist in Analysis and Development of Systems (Analise e Desenvolvimento de Sistemas in portuguese) – IFSP Campus Capivari.
+This app was made for the discipline Elective II (Eletiva II in portuguese) from the course Technologist in Analysis and Development of Systems (Analise e Desenvolvimento de Sistemas in portuguese) – IFSP Campus Capivari.
 
 ## Purpose
 
