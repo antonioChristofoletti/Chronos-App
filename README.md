@@ -8,7 +8,11 @@ The app's idea is manage the activities of electricians, mechanics and others em
 
 ## Presentation
 
-![Database Diagram](https://user-images.githubusercontent.com/31052642/110213509-21538480-7e7f-11eb-9122-7df729c4b376.png)
+#### Database Diagram
+
+![Database Diagram](https://user-images.githubusercontent.com/31052642/110214557-e1db6700-7e83-11eb-81c6-92afa838b990.png)
+
+#### Video
 
 [Application Video (It was used in the application presentation at the college)](https://www.youtube.com/watch?v=hfE02joJbJU)
 
