@@ -1,34 +1,23 @@
 # College Chronos App
 
-
 ## Purpose
 
-The ideia of the app is control the activities of electricians, mechanics and others employees. So, It’s possible manage the machines, the types of services, the types of occurence and the activities made. Thus, this employees may control their activities and see their work historical. This app was made for the discipline the Elective II (Eletiva II in portuguese) from the course the Technologist in Analysis and Development of Systems (Analise e Desenvolvimento de Sistemas in portuguese) – IFSP Campus Capivari.
+The app's idea is manage the activities of electricians, mechanics and others employees. This app was made for the discipline the Elective II (Eletiva II in portuguese) from the course the Technologist in Analysis and Development of Systems (Analise e Desenvolvimento de Sistemas in portuguese) – IFSP Campus Capivari.
 
 ## Images
 
 [Application Video (It was used in the application presentation at the college)](https://www.youtube.com/watch?v=hfE02joJbJU)
 
-[Database Diagram](https://drive.google.com/open?id=1Ka6zYokR9rPDQh3jT4NyattcoR-MZEwY)
+![Database Diagram](https://user-images.githubusercontent.com/31052642/110213509-21538480-7e7f-11eb-9122-7df729c4b376.png)
 
 ## Used Technologies
 
 - [Gradle](https://gradle.org/)
 - [Java](https://www.java.com/pt-BR/)
 
-## Setup
-
-- Execute the app from an `IDE`, start the `fun main` from file `JavalinAppKt`;
-
 ## Features
 
-The applications is an `API mock` with an unique `end-point`, in which It has contents and important points related with this kind of application, such as:
-
-- Random text generator;
-- Data generator through `URL params`;
-- Parameter handling;
-- Standalone application, no need databases.
-- Unitary tests.
+It’s possible to manage the machines, the types of services, the types of occurrence and the activities. The employees also can control their activities and check their work historical.
 
 ## Status
 
